@@ -19,41 +19,26 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-
 <body>
 
-  <!-- =========================
+  <!-- ==================================================
        HEADER
-  ========================== -->
+  =================================================== -->
   <header class="site-header">
-
     <div class="header-inner container">
 
       <a href="#hero" class="header-logo">
-
-        <img
-          src="images/logo_2025.svg"
-          alt="バンタン文化祭2025"
-        >
-
-        <span class="header-date">
-          2025.11.15 SAT
-        </span>
-
+        <img src="images/logo_2025.svg" alt="バンタン文化祭2025">
+        <span class="header-date">2025.11.15 SAT</span>
       </a>
 
-
-      <!-- PCナビ -->
       <nav class="header-nav" aria-label="メインナビゲーション">
         <a href="#about">ABOUT</a>
         <a href="#contents">CONTENTS</a>
         <a href="#cta">MORE INFORMATION</a>
       </nav>
 
-
-      <!-- スマホナビ -->
       <details class="sp-menu">
-
         <summary aria-label="メニューを開く">
           <span></span>
           <span></span>
@@ -65,26 +50,22 @@
           <a href="#contents">CONTENTS</a>
           <a href="#cta">MORE INFORMATION</a>
         </nav>
-
       </details>
 
     </div>
-
   </header>
-
 
 
   <main>
 
-    <!-- =========================
+    <!-- ==================================================
          HERO
-    ========================== -->
+    =================================================== -->
     <section id="hero" class="hero">
 
       <div class="hero-inner container">
 
         <div class="hero-visual">
-
           <img
             class="hero-image-pc"
             src="images/mv_pc.jpg"
@@ -96,11 +77,8 @@
             src="images/mv_sp.webp"
             alt="バンタン文化祭2025 キービジュアル"
           >
-
         </div>
 
-
-        <!-- イベント情報 -->
         <div class="hero-info">
 
           <p class="hero-theme">
@@ -110,7 +88,6 @@
           <h1>
             バンタン文化祭2025
           </h1>
-
 
           <dl class="event-info">
 
@@ -143,26 +120,36 @@
           </dl>
 
         </div>
-
       </div>
 
     </section>
 
 
-
-    <!-- =========================
+    <!-- ==================================================
          ABOUT
-    ========================== -->
+    =================================================== -->
     <section id="about" class="about">
 
       <p class="about-background-text" aria-hidden="true">
         ABOUT
       </p>
 
+      <!-- 背景装飾 -->
+      <div class="about-decor" aria-hidden="true">
+        <span class="about-triangle about-triangle-01"></span>
+        <span class="about-triangle about-triangle-02"></span>
+        <span class="about-triangle about-triangle-03"></span>
+
+        <span class="about-mini-arrow about-mini-arrow-01">›››</span>
+        <span class="about-mini-arrow about-mini-arrow-02">›››</span>
+
+        <span class="about-ui-window about-ui-window-01"></span>
+        <span class="about-ui-window about-ui-window-02"></span>
+      </div>
+
       <div class="container">
 
-        <header class="section-heading">
-
+        <header class="section-heading about-heading">
           <p class="section-label">
             ABOUT
           </p>
@@ -170,51 +157,50 @@
           <h2>
             文化祭について
           </h2>
-
         </header>
 
 
         <div class="about-list">
 
-          <!-- ABOUT 01 -->
+          <!-- ABOUT ITEM 01 -->
           <article class="about-item about-item-01">
 
-            <p class="about-number">
-              01
-            </p>
+            <div class="about-arrow about-arrow-cyan" aria-hidden="true"></div>
 
-            <h3>
-              学びの成果が集まる文化祭。
-            </h3>
+            <div class="about-card">
+              <h3>
+                学びの成果が集まる文化祭。
+              </h3>
 
-            <p>
-              バンタン文化祭は、ゲーム・IT・美容を学ぶ生徒たちが、
-              日頃の学びや制作の成果を発表するイベントです。
-              作品展示や体験企画を通して、
-              それぞれの分野で身につけた技術やアイデアを発信します。
-            </p>
+              <p>
+                バンタン文化祭は、ゲーム・IT・美容を学ぶ生徒たちが、
+                日頃の学びや制作の成果を発表するイベントです。
+                作品展示や体験企画を通して、
+                それぞれの分野で身につけた技術やアイデアを発信します。
+              </p>
+            </div>
 
           </article>
 
 
-          <!-- ABOUT 02 -->
+          <!-- ABOUT ITEM 02 -->
           <article class="about-item about-item-02">
 
-            <p class="about-number">
-              02
-            </p>
+            <div class="about-arrow about-arrow-lavender" aria-hidden="true"></div>
 
-            <h3>
-              見るだけじゃない。遊んで、体験する。
-            </h3>
+            <div class="about-card">
+              <h3>
+                見るだけじゃない。遊んで、体験する。
+              </h3>
 
-            <p>
-              会場では、ゲームの展示・試遊やビンゴ大会、
-              ネイル・ヘアセットなど、さまざまな企画を楽しめます。
-              実際に作品や企画に触れることで、
-              ゲーム・IT・美容それぞれの学びや、
-              生徒たちのアイデアを身近に感じることができます。
-            </p>
+              <p>
+                会場では、ゲームの展示・試遊やビンゴ大会、
+                ネイル・ヘアセットなど、さまざまな企画を楽しめます。
+                実際に作品や企画に触れることで、
+                ゲーム・IT・美容それぞれの学びや、
+                生徒たちのアイデアを身近に感じることができます。
+              </p>
+            </div>
 
           </article>
 
@@ -225,16 +211,36 @@
     </section>
 
 
+    <!-- ==================================================
+         LIGHT → DARK TRANSITION
+    =================================================== -->
+    <div class="glitch-transition" aria-hidden="true">
+      <span class="glitch-pixel pixel-small pixel-01"></span>
+      <span class="glitch-pixel pixel-small pixel-02"></span>
+      <span class="glitch-pixel pixel-small pixel-03"></span>
+      <span class="glitch-pixel pixel-small pixel-04"></span>
 
-    <!-- =========================
+      <span class="glitch-pixel pixel-medium pixel-05"></span>
+      <span class="glitch-pixel pixel-medium pixel-06"></span>
+      <span class="glitch-pixel pixel-medium pixel-07"></span>
+      <span class="glitch-pixel pixel-medium pixel-08"></span>
+
+      <span class="glitch-pixel pixel-large pixel-09"></span>
+      <span class="glitch-pixel pixel-large pixel-10"></span>
+
+      <span class="glitch-break glitch-break-cyan"></span>
+      <span class="glitch-break glitch-break-magenta"></span>
+    </div>
+
+
+    <!-- ==================================================
          CONTENTS
-    ========================== -->
+    =================================================== -->
     <section id="contents" class="contents">
 
       <div class="container">
 
         <header class="section-heading contents-heading">
-
           <p class="section-label">
             FUKUOKA
           </p>
@@ -242,17 +248,13 @@
           <h2>
             CONTENTS
           </h2>
-
         </header>
 
 
-        <!-- =====================
-             コンテンツ一覧ナビ
-        ====================== -->
-        <nav
-          class="contents-nav"
-          aria-label="福岡校コンテンツ一覧"
-        >
+        <!-- ==================================================
+             CONTENTS NAV
+        =================================================== -->
+        <nav class="contents-nav" aria-label="福岡校コンテンツ一覧">
 
           <p class="contents-count">
             3 CONTENTS
@@ -260,63 +262,28 @@
 
           <div class="contents-nav-list">
 
-            <a
-              href="#game"
-              class="contents-nav-item"
-            >
-
-              <span class="contents-nav-number">
-                01
-              </span>
-
-              <span class="contents-nav-category">
-                GAME
-              </span>
-
+            <a href="#game" class="contents-nav-item contents-nav-game">
+              <span class="contents-nav-number">01</span>
+              <span class="contents-nav-category">GAME</span>
               <span class="contents-nav-name">
                 バンタンゲームアカデミー
               </span>
-
             </a>
 
-
-            <a
-              href="#it"
-              class="contents-nav-item"
-            >
-
-              <span class="contents-nav-number">
-                02
-              </span>
-
-              <span class="contents-nav-category">
-                IT
-              </span>
-
+            <a href="#it" class="contents-nav-item contents-nav-it">
+              <span class="contents-nav-number">02</span>
+              <span class="contents-nav-category">IT</span>
               <span class="contents-nav-name">
                 KADOKAWAドワンゴ情報工科学院
               </span>
-
             </a>
 
-
-            <a
-              href="#beauty"
-              class="contents-nav-item"
-            >
-
-              <span class="contents-nav-number">
-                03
-              </span>
-
-              <span class="contents-nav-category">
-                BEAUTY
-              </span>
-
+            <a href="#beauty" class="contents-nav-item contents-nav-beauty">
+              <span class="contents-nav-number">03</span>
+              <span class="contents-nav-category">BEAUTY</span>
               <span class="contents-nav-name">
                 ヴィーナスアカデミー
               </span>
-
             </a>
 
           </div>
@@ -324,15 +291,17 @@
         </nav>
 
 
-        <!-- 共通開催情報 -->
+        <!-- ==================================================
+             LOCATION / TIME
+        =================================================== -->
         <dl class="contents-info">
 
-          <div>
+          <div class="contents-info-location">
             <dt>LOCATION</dt>
             <dd>バンタン福岡校 1号館</dd>
           </div>
 
-          <div>
+          <div class="contents-info-time">
             <dt>TIME</dt>
             <dd>11:00—17:00</dd>
           </div>
@@ -340,11 +309,10 @@
         </dl>
 
 
-
-        <!-- =====================
-             01 GAME
-        ====================== -->
-        <section id="game" class="school">
+        <!-- ==================================================
+             GAME
+        =================================================== -->
+        <section id="game" class="school school-game">
 
           <header class="school-heading">
 
@@ -373,10 +341,9 @@
           <div class="content-list">
 
             <article class="content-card">
-
-              <p class="content-number">
-                01-01
-              </p>
+              <span class="content-background-text" aria-hidden="true">
+                GAME
+              </span>
 
               <h4>
                 オリジナルゲーム作品展示
@@ -385,15 +352,13 @@
               <p>
                 デジタル＆アナログゲームの展示・試遊
               </p>
-
             </article>
 
 
             <article class="content-card">
-
-              <p class="content-number">
-                01-02
-              </p>
+              <span class="content-background-text" aria-hidden="true">
+                GAME
+              </span>
 
               <h4>
                 ゲームイベント＆グッズ販売
@@ -402,15 +367,13 @@
               <p>
                 ゲーム大会イベントとグッズ販売
               </p>
-
             </article>
 
 
             <article class="content-card">
-
-              <p class="content-number">
-                01-03
-              </p>
+              <span class="content-background-text" aria-hidden="true">
+                GAME
+              </span>
 
               <h4>
                 作品展示＆グッズショップ
@@ -419,7 +382,6 @@
               <p>
                 デザイン作品の展示とオリジナルグッズ販売
               </p>
-
             </article>
 
           </div>
@@ -427,11 +389,10 @@
         </section>
 
 
-
-        <!-- =====================
-             02 IT
-        ====================== -->
-        <section id="it" class="school">
+        <!-- ==================================================
+             IT
+        =================================================== -->
+        <section id="it" class="school school-it">
 
           <header class="school-heading">
 
@@ -460,10 +421,9 @@
           <div class="content-list content-list-two">
 
             <article class="content-card">
-
-              <p class="content-number">
-                02-01
-              </p>
+              <span class="content-background-text" aria-hidden="true">
+                IT
+              </span>
 
               <h4>
                 ビンゴ大会
@@ -472,15 +432,13 @@
               <p>
                 プログラミング制作によるビンゴ大会
               </p>
-
             </article>
 
 
             <article class="content-card">
-
-              <p class="content-number">
-                02-02
-              </p>
+              <span class="content-background-text" aria-hidden="true">
+                IT
+              </span>
 
               <h4>
                 WEBサイト展示
@@ -489,7 +447,6 @@
               <p>
                 エンジニアを目指す生徒たちの作品展示
               </p>
-
             </article>
 
           </div>
@@ -497,11 +454,10 @@
         </section>
 
 
-
-        <!-- =====================
-             03 BEAUTY
-        ====================== -->
-        <section id="beauty" class="school">
+        <!-- ==================================================
+             BEAUTY
+        =================================================== -->
+        <section id="beauty" class="school school-beauty">
 
           <header class="school-heading">
 
@@ -530,10 +486,9 @@
           <div class="content-list">
 
             <article class="content-card">
-
-              <p class="content-number">
-                03-01
-              </p>
+              <span class="content-background-text" aria-hidden="true">
+                BEAUTY
+              </span>
 
               <h4>
                 ネイルサロン
@@ -542,15 +497,13 @@
               <p>
                 秋を楽しむデザインのジェルネイル体験
               </p>
-
             </article>
 
 
             <article class="content-card">
-
-              <p class="content-number">
-                03-02
-              </p>
+              <span class="content-background-text" aria-hidden="true">
+                BEAUTY
+              </span>
 
               <h4>
                 ヘアセットサロン
@@ -559,15 +512,13 @@
               <p>
                 可愛いヘアアレンジメニュー
               </p>
-
             </article>
 
 
             <article class="content-card">
-
-              <p class="content-number">
-                03-03
-              </p>
+              <span class="content-background-text" aria-hidden="true">
+                BEAUTY
+              </span>
 
               <h4>
                 屋台＆フォトブース
@@ -576,7 +527,6 @@
               <p>
                 グルメとフォトスポットを楽しめる企画
               </p>
-
             </article>
 
           </div>
@@ -588,10 +538,9 @@
     </section>
 
 
-
-    <!-- =========================
+    <!-- ==================================================
          CTA
-    ========================== -->
+    =================================================== -->
     <section id="cta" class="cta">
 
       <div class="cta-inner container">
@@ -604,17 +553,14 @@
           バンタンについて詳しく見る。
         </h2>
 
-
         <div class="cta-links">
-
-          <a href="#" class="cta-button">
+          <a href="#" class="cta-button cta-button-cyan">
             資料請求
           </a>
 
-          <a href="#" class="cta-button">
+          <a href="#" class="cta-button cta-button-magenta">
             学校案内
           </a>
-
         </div>
 
       </div>
@@ -624,43 +570,22 @@
   </main>
 
 
-
-  <!-- =========================
+  <!-- ==================================================
        FOOTER
-  ========================== -->
+  =================================================== -->
   <footer class="site-footer">
 
     <div class="footer-inner container">
 
       <a href="#hero" class="footer-logo">
-
-        <img
-          src="images/logo_2025.svg"
-          alt="バンタン文化祭2025"
-        >
-
+        <img src="images/logo_2025.svg" alt="バンタン文化祭2025">
       </a>
 
-
-      <nav
-        class="footer-nav"
-        aria-label="フッターナビゲーション"
-      >
-
-        <a href="#about">
-          ABOUT
-        </a>
-
-        <a href="#contents">
-          CONTENTS
-        </a>
-
-        <a href="#cta">
-          MORE INFORMATION
-        </a>
-
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="#about">ABOUT</a>
+        <a href="#contents">CONTENTS</a>
+        <a href="#cta">MORE INFORMATION</a>
       </nav>
-
 
       <p class="copyright">
         © 2025 VANTAN BUNKASAI
@@ -670,7 +595,5 @@
 
   </footer>
 
-
 </body>
-
 </html>
