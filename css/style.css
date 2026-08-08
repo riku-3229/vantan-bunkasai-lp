@@ -663,6 +663,13 @@ section {
 
 .contents-info div:last-child {
   border-color: var(--color-magenta);
+  text-align: center;
+  padding: 14px 20px;
+}
+
+.contents-info div:last-child dd {
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
 .contents-info dt {
