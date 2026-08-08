@@ -1,27 +1,43 @@
 @charset "UTF-8";
-/* =========================
-   Variables
-========================== */
+
+
+/* ==================================================
+   1. BASIC
+================================================== */
+
+/* ---------- 1-1. Variables ---------- */
 
 :root {
-  /* Colors */
+  /* Base colors */
   --color-white: #ffffff;
   --color-text: #171525;
+  --color-text-soft: #312d46;
 
+  /* Neon colors */
   --color-cyan: #37e7ff;
   --color-magenta: #ff4fd8;
+  --color-violet: #a779ff;
 
-  --color-deep-violet: #18122f;
-  --color-blue-violet: #211a46;
+  /* Pastel colors */
+  --color-pastel-cyan: #a9eff7;
+  --color-pastel-lavender: #c9b9ff;
+  --color-pastel-pink: #f4b8dc;
 
-  --color-lavender: #e9e4ff;
-  --color-light-cyan: #dffaff;
+  /* Light section */
+  --color-light-cyan: #e5fbff;
+  --color-lavender: #eee9ff;
+  --color-pale-pink: #fff0f7;
 
-  /* Fonts - before */
+  /* Dark section */
+  --color-contents-top: #17122a;
+  --color-contents-mid: #21153b;
+  --color-contents-bottom: #150d2a;
+  --color-cta: #090613;
+  --color-footer: #030207;
+
+  /* Fonts */
   --font-en-before: "Rajdhani", sans-serif;
   --font-ja-before: "Noto Sans JP", sans-serif;
-
-  /* Fonts - after */
   --font-en-after: "Chakra Petch", sans-serif;
   --font-ja-after: "Zen Kaku Gothic New", sans-serif;
 
@@ -35,13 +51,11 @@
 
   /* Layout */
   --content-width: 1200px;
-  --header-height: 104px;
+  --header-height: 84px;
 }
 
 
-/* =========================
-   Reset / Base
-========================== */
+/* ---------- 1-2. Reset / Base ---------- */
 
 *,
 *::before,
@@ -55,10 +69,8 @@ html {
 
 body {
   margin: 0;
-
   color: var(--color-text);
   background-color: var(--color-white);
-
   font-family: var(--font-ja-before);
   font-size: var(--fs-body);
   line-height: 1.8;
@@ -108,9 +120,7 @@ h4 {
 }
 
 
-/* =========================
-   Common
-========================== */
+/* ---------- 1-3. Common Layout ---------- */
 
 .container {
   width: min(100% - 48px, var(--content-width));
@@ -123,50 +133,73 @@ section {
 
 .section-label {
   margin-bottom: 4px;
-
   font-family: var(--font-en-before);
   font-weight: 700;
   letter-spacing: 0.08em;
 }
 
 
-/* =========================
-   Header
-========================== */
+/* ==================================================
+   2. HEADER
+================================================== */
+
+/* ---------- 2-1. Header Base ---------- */
 
 .site-header {
   position: fixed;
   z-index: 1000;
-
   top: 0;
   left: 0;
 
   width: 100%;
-  min-height: var(--header-height);
+  padding-top: 10px;
 
-  background-color: rgba(255, 255, 255, 0.95);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.56),
+      rgba(232, 250, 255, 0.20)
+    );
 
-  backdrop-filter: blur(8px);
-
-  border-bottom: 2px solid var(--color-cyan);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
   font-family: var(--font-ja-after);
 }
 
 .header-inner {
-  min-height: var(--header-height);
+  min-height: calc(var(--header-height) - 18px);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   gap: 24px;
+  padding: 10px 18px;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(255, 255, 255, 0.80),
+      rgba(244, 249, 255, 0.66),
+      rgba(239, 233, 255, 0.56)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.74);
+
+  box-shadow:
+    0 8px 24px rgba(52, 44, 88, 0.08),
+    inset 0 -1px 0 rgba(55, 231, 255, 0.20);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 
-/* ロゴを大きくする */
+/* ---------- 2-2. Logo ---------- */
+
 .header-logo {
-  width: 270px;
+  width: 245px;
 
   display: flex;
   flex-direction: column;
@@ -179,24 +212,23 @@ section {
   width: 100%;
 }
 
-
-/* ロゴ下の開催日 */
 .header-date {
   margin-top: 2px;
 
   color: var(--color-text);
 
   font-family: var(--font-en-after);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-
   letter-spacing: 0.14em;
 
   text-shadow:
-    -1px 0 var(--color-cyan),
-    1px 0 var(--color-magenta);
+    -1px 0 rgba(169, 239, 247, 0.85),
+    1px 0 rgba(244, 184, 220, 0.72);
 }
 
+
+/* ---------- 2-3. Navigation ---------- */
 
 .header-nav {
   display: flex;
@@ -205,22 +237,30 @@ section {
   gap: 28px;
 
   font-family: var(--font-en-after);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.06em;
 }
 
 .header-nav a {
   transition:
+    color 0.2s ease,
     text-shadow 0.2s ease,
-    color 0.2s ease;
+    transform 0.2s ease;
 }
 
 .header-nav a:hover {
+  color: #211d38;
+
   text-shadow:
-    -1px 0 var(--color-cyan),
-    1px 0 var(--color-magenta);
+    -1px 0 rgba(169, 239, 247, 0.86),
+    1px 0 rgba(244, 184, 220, 0.72);
+
+  transform: translateY(-1px);
 }
+
+
+/* ---------- 2-4. Smartphone Menu ---------- */
 
 .sp-menu {
   display: none;
@@ -232,19 +272,32 @@ section {
   font-weight: 600;
 }
 
-/* =========================
-   HERO
-========================== */
+
+/* ==================================================
+   3. HERO
+================================================== */
+
+/* ---------- 3-1. Hero Base ---------- */
 
 .hero {
-  padding-top: calc(var(--header-height) + 20px);
-  padding-bottom: 40px;
+  padding-top: calc(var(--header-height) + 28px);
+  padding-bottom: 42px;
 
   background:
+    radial-gradient(
+      circle at 12% 25%,
+      rgba(169, 239, 247, 0.42),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 88% 72%,
+      rgba(201, 185, 255, 0.32),
+      transparent 33%
+    ),
     linear-gradient(
       135deg,
-      var(--color-white) 0%,
-      var(--color-light-cyan) 60%,
+      #ffffff 0%,
+      var(--color-light-cyan) 55%,
       var(--color-lavender) 100%
     );
 }
@@ -259,9 +312,7 @@ section {
 }
 
 
-/* =========================
-   HERO KV
-========================== */
+/* ---------- 3-2. Key Visual ---------- */
 
 .hero-visual {
   position: relative;
@@ -272,8 +323,18 @@ section {
   overflow: hidden;
 }
 
+.hero-image-pc {
+  display: block;
+  width: 100%;
+}
 
-/* 画像と背景の境界をなじませる */
+.hero-image-sp {
+  display: none;
+}
+
+
+/* ---------- 3-3. Image Blend Gradient ---------- */
+
 .hero-visual::after {
   content: "";
 
@@ -293,20 +354,8 @@ section {
   pointer-events: none;
 }
 
-.hero-image-pc {
-  display: block;
 
-  width: 100%;
-}
-
-.hero-image-sp {
-  display: none;
-}
-
-
-/* =========================
-   HERO Information
-========================== */
+/* ---------- 3-4. Event Panel ---------- */
 
 .hero-info {
   position: absolute;
@@ -316,15 +365,18 @@ section {
   bottom: 28px;
 
   width: min(540px, 48%);
-
   padding: 24px;
 
-  background-color: rgba(255, 255, 255, 0.70);
+  background-color: rgba(255, 255, 255, 0.80);
 
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
 
-  border-left: 3px solid var(--color-cyan);
-  border-bottom: 3px solid var(--color-magenta);
+  border-left: 3px solid var(--color-pastel-cyan);
+  border-bottom: 3px solid var(--color-pastel-pink);
+
+  box-shadow:
+    8px 10px 0 rgba(63, 54, 94, 0.12);
 }
 
 .hero-theme {
@@ -340,36 +392,32 @@ section {
 }
 
 
-/* =========================
-   Event Information
-========================== */
+/* ---------- 3-5. Event Information ---------- */
 
 .event-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
   gap: 8px;
-
   margin-bottom: 0;
 }
 
 .event-info > div {
   padding: 12px 14px;
 
-  background-color: rgba(255, 255, 255, 0.72);
+  background-color: rgba(255, 255, 255, 0.74);
 
-  border: 1px solid rgba(23, 21, 37, 0.15);
+  border: 1px solid rgba(23, 21, 37, 0.12);
 }
 
 .event-info dt {
   margin-bottom: 2px;
 
-  color: var(--color-magenta);
+  color: #c540a5;
 
   font-family: var(--font-en-before);
   font-size: 0.78rem;
   font-weight: 700;
-
   letter-spacing: 0.1em;
 }
 
@@ -379,10 +427,8 @@ section {
 
 .event-info-main dd {
   font-family: var(--font-en-before);
-
   font-size: 1.35rem;
   font-weight: 700;
-
   line-height: 1.25;
 }
 
@@ -391,7 +437,8 @@ section {
   font-size: 0.85rem;
 }
 
-.event-info-place {
+.event-info-place,
+.event-info-address {
   grid-column: 1 / -1;
 }
 
@@ -400,70 +447,255 @@ section {
   font-weight: 700;
 }
 
-.event-info-address {
-  grid-column: 1 / -1;
-}
-
 .event-info-address dd {
   font-size: 0.83rem;
-
   line-height: 1.55;
 }
 
 
-/* =========================
-   ABOUT
-========================== */
+/* ==================================================
+   4. ABOUT
+================================================== */
+
+/* ---------- 4-1. About Background ---------- */
 
 .about {
   position: relative;
 
-  padding-block: 60px;
+  padding-block: 86px 100px;
 
   overflow: hidden;
 
-  background-color: var(--color-white);
+  background:
+    radial-gradient(
+      circle at 14% 18%,
+      rgba(169, 239, 247, 0.32),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 84% 78%,
+      rgba(244, 184, 220, 0.24),
+      transparent 30%
+    ),
+    linear-gradient(
+      150deg,
+      #ffffff 0%,
+      #f4fdff 38%,
+      #f4f0ff 72%,
+      #fff7fb 100%
+    );
 }
+
+
+/* 背景ドット */
+.about::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(120, 126, 170, 0.22) 0 1px,
+      transparent 1.3px
+    );
+
+  background-size: 9px 9px;
+
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse at 14% 20%,
+      rgba(0, 0, 0, 0.58),
+      transparent 43%
+    ),
+    radial-gradient(
+      ellipse at 88% 78%,
+      rgba(0, 0, 0, 0.42),
+      transparent 40%
+    );
+
+  mask-image:
+    radial-gradient(
+      ellipse at 14% 20%,
+      rgba(0, 0, 0, 0.58),
+      transparent 43%
+    ),
+    radial-gradient(
+      ellipse at 88% 78%,
+      rgba(0, 0, 0, 0.42),
+      transparent 40%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ---------- 4-2. Background Word ---------- */
 
 .about-background-text {
   position: absolute;
+  z-index: 0;
 
-  top: 40px;
-  right: -30px;
+  top: 52px;
+  right: -48px;
 
   margin: 0;
 
-  color: rgba(55, 231, 255, 0.075);
+  color: rgba(141, 207, 227, 0.16);
 
   font-family: var(--font-en-before);
-  font-size: clamp(9rem, 19vw, 17rem);
+  font-size: clamp(9rem, 19vw, 18rem);
   font-weight: 700;
-
-  line-height: 0.8;
+  line-height: 0.78;
 
   pointer-events: none;
   user-select: none;
 }
 
-.about .section-heading {
-  position: relative;
-  z-index: 1;
 
-  margin-bottom: 36px;
+/* ---------- 4-3. Background Decorations ---------- */
+
+.about-decor {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
 }
 
-.about-list {
+.about-triangle {
+  position: absolute;
+
+  width: 0;
+  height: 0;
+
+  border-top: 34px solid transparent;
+  border-bottom: 34px solid transparent;
+  border-left: 52px solid rgba(169, 239, 247, 0.30);
+
+  filter: blur(0.1px);
+}
+
+.about-triangle-01 {
+  top: 23%;
+  right: 11%;
+  transform: rotate(-8deg) scale(1.35);
+}
+
+.about-triangle-02 {
+  top: 58%;
+  left: 6%;
+
+  border-left-color: rgba(201, 185, 255, 0.25);
+
+  transform: rotate(18deg) scale(0.75);
+}
+
+.about-triangle-03 {
+  right: 18%;
+  bottom: 8%;
+
+  border-left-color: rgba(244, 184, 220, 0.22);
+
+  transform: rotate(-24deg) scale(0.92);
+}
+
+.about-mini-arrow {
+  position: absolute;
+
+  color: rgba(156, 141, 215, 0.30);
+
+  font-family: var(--font-en-after);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.18em;
+}
+
+.about-mini-arrow-01 {
+  top: 34%;
+  left: 5%;
+}
+
+.about-mini-arrow-02 {
+  right: 9%;
+  bottom: 18%;
+  transform: rotate(180deg);
+}
+
+.about-ui-window {
+  position: absolute;
+
+  width: 150px;
+  height: 44px;
+
+  border: 2px solid rgba(168, 155, 220, 0.20);
+  border-radius: 4px;
+}
+
+.about-ui-window::before {
+  content: "—  □  ×";
+
+  position: absolute;
+  top: 3px;
+  right: 8px;
+
+  color: rgba(137, 123, 198, 0.28);
+
+  font-family: var(--font-en-after);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+}
+
+.about-ui-window-01 {
+  top: 10%;
+  right: 12%;
+}
+
+.about-ui-window-02 {
+  left: 8%;
+  bottom: 7%;
+
+  width: 120px;
+
+  border-color: rgba(116, 201, 222, 0.17);
+}
+
+
+/* ---------- 4-4. Heading ---------- */
+
+.about > .container {
   position: relative;
   z-index: 1;
+}
 
+.about-heading {
+  margin-bottom: 54px;
+}
+
+.about-heading .section-label {
+  color: #2b2940;
+}
+
+.about-heading h2 {
+  margin-bottom: 0;
+}
+
+
+/* ---------- 4-5. About Items ---------- */
+
+.about-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 48px;
+  gap: 56px;
 }
 
 .about-item {
-  max-width: 520px;
+  position: relative;
+  max-width: 535px;
 }
 
 .about-item-01 {
@@ -473,71 +705,399 @@ section {
 .about-item-02 {
   justify-self: end;
 
-  margin-top: 56px;
+  margin-top: 66px;
 }
 
-.about-number {
-  margin-bottom: 12px;
 
-  font-family: var(--font-en-before);
+/* ---------- 4-6. Pastel Pixel Arrows ---------- */
 
-  font-size: clamp(4.5rem, 8vw, 7rem);
-  font-weight: 700;
+.about-arrow {
+  width: min(280px, 72%);
+  height: 34px;
 
-  line-height: 0.8;
+  margin-bottom: 18px;
 
-  text-shadow:
-    -2px 0 var(--color-cyan),
-    2px 0 var(--color-magenta);
+  clip-path: polygon(
+    0 18%,
+    78% 18%,
+    78% 0,
+    100% 50%,
+    78% 100%,
+    78% 82%,
+    0 82%,
+    0 65%,
+    8% 65%,
+    8% 35%,
+    0 35%
+  );
+
+  background-size:
+    8px 8px,
+    100% 100%;
+  background-blend-mode: multiply;
 }
 
-.about-item h3 {
-  margin-bottom: 16px;
+.about-arrow-cyan {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.46) 0 1.3px,
+      transparent 1.6px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(142, 232, 244, 0.78),
+      rgba(178, 218, 247, 0.72),
+      rgba(205, 186, 255, 0.66)
+    );
+
+  background-size:
+    8px 8px,
+    100% 100%;
 }
 
-.about-item > p:last-child {
+.about-arrow-lavender {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.44) 0 1.3px,
+      transparent 1.6px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(199, 184, 255, 0.80),
+      rgba(218, 186, 244, 0.72),
+      rgba(244, 184, 220, 0.62)
+    );
+
+  background-size:
+    8px 8px,
+    100% 100%;
+}
+
+
+/* ---------- 4-7. White Content Cards ---------- */
+
+.about-card {
+  position: relative;
+
+  padding: 24px 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(252, 252, 255, 0.92)
+    );
+
+  clip-path: polygon(
+    18px 0,
+    100% 0,
+    100% calc(100% - 18px),
+    calc(100% - 18px) 100%,
+    0 100%,
+    0 18px
+  );
+
+  filter:
+    drop-shadow(-4px 4px 0 rgba(169, 239, 247, 0.72))
+    drop-shadow(5px 5px 0 rgba(244, 184, 220, 0.58))
+    drop-shadow(0 12px 18px rgba(87, 75, 123, 0.13));
+}
+
+.about-card h3 {
+  margin-bottom: 14px;
+
+  color: #1c1930;
+}
+
+.about-card p {
   margin-bottom: 0;
+
+  color: rgba(31, 27, 51, 0.80);
 }
 
 
-/* =========================
-   CONTENTS
-========================== */
+/* ==================================================
+   5. LIGHT → DARK TRANSITION
+================================================== */
+
+/* ---------- 5-1. Transition Base ---------- */
+
+.glitch-transition {
+  position: relative;
+  z-index: 4;
+
+  height: var(--header-height);
+
+  margin-top: calc(var(--header-height) * -0.06);
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(246, 242, 255, 0.08) 0%,
+      rgba(31, 21, 54, 0.22) 34%,
+      rgba(21, 14, 40, 0.72) 73%,
+      var(--color-contents-top) 100%
+    );
+}
+
+.glitch-transition::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0 18%,
+      rgba(20, 13, 38, 0.14) 18% 32%,
+      rgba(20, 13, 38, 0.30) 32% 52%,
+      rgba(20, 13, 38, 0.52) 52% 72%,
+      rgba(20, 13, 38, 0.78) 72% 100%
+    );
+
+  clip-path: polygon(
+    0 8%,
+    7% 8%,
+    7% 20%,
+    15% 20%,
+    15% 4%,
+    24% 4%,
+    24% 30%,
+    34% 30%,
+    34% 12%,
+    46% 12%,
+    46% 38%,
+    59% 38%,
+    59% 18%,
+    70% 18%,
+    70% 44%,
+    82% 44%,
+    82% 24%,
+    92% 24%,
+    92% 8%,
+    100% 8%,
+    100% 100%,
+    0 100%
+  );
+}
+
+
+/* ---------- 5-2. Pixel Blocks ---------- */
+
+.glitch-pixel {
+  position: absolute;
+
+  display: block;
+
+  background: rgba(21, 14, 40, 0.52);
+}
+
+.pixel-small {
+  width: 9px;
+  height: 9px;
+}
+
+.pixel-medium {
+  width: 24px;
+  height: 14px;
+}
+
+.pixel-large {
+  width: 54px;
+  height: 26px;
+}
+
+.pixel-01 {
+  top: 16%;
+  left: 8%;
+  opacity: 0.22;
+}
+
+.pixel-02 {
+  top: 28%;
+  left: 26%;
+  opacity: 0.28;
+}
+
+.pixel-03 {
+  top: 10%;
+  left: 63%;
+  opacity: 0.20;
+}
+
+.pixel-04 {
+  top: 34%;
+  left: 88%;
+  opacity: 0.34;
+}
+
+.pixel-05 {
+  top: 38%;
+  left: 16%;
+  opacity: 0.44;
+}
+
+.pixel-06 {
+  top: 50%;
+  left: 43%;
+
+  width: 34px;
+
+  opacity: 0.52;
+}
+
+.pixel-07 {
+  top: 44%;
+  left: 72%;
+
+  transform: skewX(-18deg);
+
+  opacity: 0.48;
+}
+
+.pixel-08 {
+  top: 62%;
+  left: 84%;
+
+  width: 42px;
+
+  opacity: 0.66;
+}
+
+.pixel-09 {
+  bottom: 6%;
+  left: 31%;
+
+  transform: skewX(-10deg);
+
+  opacity: 0.80;
+}
+
+.pixel-10 {
+  right: 11%;
+  bottom: 2%;
+
+  width: 76px;
+
+  opacity: 0.86;
+}
+
+
+/* ---------- 5-3. Cyan / Magenta Signal Breaks ---------- */
+
+.glitch-break {
+  position: absolute;
+
+  display: block;
+
+  height: 2px;
+
+  opacity: 0.45;
+}
+
+.glitch-break-cyan {
+  top: 34%;
+  left: 4%;
+
+  width: 18%;
+
+  background: var(--color-cyan);
+}
+
+.glitch-break-magenta {
+  right: 7%;
+  bottom: 30%;
+
+  width: 24%;
+
+  background: var(--color-magenta);
+}
+
+
+/* ==================================================
+   6. CONTENTS
+================================================== */
+
+/* ---------- 6-1. Contents Background ---------- */
 
 .contents {
-  padding-block: 72px;
+  position: relative;
+
+  padding-block: 86px;
+
+  overflow: hidden;
 
   color: var(--color-white);
 
   background:
+    radial-gradient(
+      circle at 10% 16%,
+      rgba(55, 231, 255, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 86% 58%,
+      rgba(255, 79, 216, 0.12),
+      transparent 32%
+    ),
     linear-gradient(
-      135deg,
-      var(--color-deep-violet),
-      var(--color-blue-violet)
+      150deg,
+      var(--color-contents-top) 0%,
+      var(--color-contents-mid) 46%,
+      var(--color-contents-bottom) 100%
     );
 
   font-family: var(--font-ja-after);
 }
 
+
+/* subtle scanlines */
+.contents::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 6px,
+      rgba(255, 255, 255, 0.018) 7px
+    );
+
+  pointer-events: none;
+}
+
+.contents > .container {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ---------- 6-2. Contents Heading ---------- */
+
 .contents .section-label {
   color: var(--color-cyan);
-
   font-family: var(--font-en-after);
 }
 
 .contents-heading {
-  margin-bottom: 28px;
+  margin-bottom: 34px;
 }
 
 .contents-heading h2 {
   margin-bottom: 0;
 
   font-family: var(--font-en-after);
-
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  font-size: clamp(3.6rem, 9vw, 7.5rem);
   font-weight: 700;
-
-  line-height: 0.85;
+  line-height: 0.84;
 
   text-shadow:
     -4px 0 var(--color-cyan),
@@ -545,282 +1105,525 @@ section {
 }
 
 
-/* =========================
-   CONTENTS Navigation
-========================== */
+/* ==================================================
+   7. CONTENTS NAV
+================================================== */
+
+/* ---------- 7-1. Navigation Layout ---------- */
 
 .contents-nav {
-  margin-bottom: 24px;
+  margin-bottom: 34px;
 }
 
 .contents-count {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 
-  color: var(--color-magenta);
+  color: rgba(255, 255, 255, 0.74);
 
   font-family: var(--font-en-after);
   font-size: 0.9rem;
   font-weight: 700;
-
   letter-spacing: 0.14em;
 }
 
-
-/* 3つあることを最初に見せる */
 .contents-nav-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  gap: 12px;
+  gap: 24px;
 }
 
 
-.contents-nav-item {
-  display: grid;
+/* ---------- 7-2. Hologram Nav Base ---------- */
 
+.contents-nav-item {
+  --nav-rgb: 55, 231, 255;
+
+  position: relative;
+  isolation: isolate;
+
+  min-height: 112px;
+  padding: 16px 18px;
+
+  display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   grid-template-rows: auto auto;
 
   column-gap: 14px;
 
-  padding: 14px 16px;
+  color: var(--color-white);
 
-  background-color: rgba(255, 255, 255, 0.04);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--nav-rgb), 0.16),
+      rgba(255, 255, 255, 0.035) 48%,
+      rgba(var(--nav-rgb), 0.09)
+    );
 
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(var(--nav-rgb), 0.70);
+
+  box-shadow:
+    inset 0 0 28px rgba(var(--nav-rgb), 0.15),
+    inset 0 0 8px rgba(var(--nav-rgb), 0.28),
+    0 0 14px rgba(var(--nav-rgb), 0.20),
+    0 10px 26px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
 
   transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contents-nav-item::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(var(--nav-rgb), 0.18) 0 0.8px,
+      transparent 1px
+    );
+
+  background-size: 7px 7px;
+
+  opacity: 0.42;
+
+  pointer-events: none;
 }
 
 .contents-nav-item:hover {
-  border-color: var(--color-cyan);
+  transform: translateY(-4px);
 
-  background-color: rgba(55, 231, 255, 0.08);
-
-  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 36px rgba(var(--nav-rgb), 0.20),
+    inset 0 0 10px rgba(var(--nav-rgb), 0.36),
+    0 0 20px rgba(var(--nav-rgb), 0.30),
+    0 13px 30px rgba(0, 0, 0, 0.34);
 }
 
+
+/* ---------- 7-3. GAME ---------- */
+
+.contents-nav-game {
+  --nav-rgb: 55, 231, 255;
+}
+
+
+/* ---------- 7-4. IT ---------- */
+
+.contents-nav-it {
+  --nav-rgb: 167, 121, 255;
+}
+
+
+/* ---------- 7-5. BEAUTY ---------- */
+
+.contents-nav-beauty {
+  --nav-rgb: 255, 79, 216;
+}
+
+
+/* ---------- 7-6. Navigation Text ---------- */
 
 .contents-nav-number {
   grid-row: 1 / 3;
-
   align-self: center;
 
-  color: var(--color-cyan);
-
   font-family: var(--font-en-after);
-  font-size: 1.8rem;
+  font-size: 1.65rem;
   font-weight: 700;
-
   line-height: 1;
-}
 
+  color: rgba(var(--nav-rgb), 0.92);
+}
 
 .contents-nav-category {
   font-family: var(--font-en-after);
-
   font-size: 0.82rem;
   font-weight: 700;
-
   letter-spacing: 0.12em;
 }
-
 
 .contents-nav-name {
   overflow-wrap: anywhere;
 
-  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.74);
 
+  font-size: 0.8rem;
   line-height: 1.45;
 }
 
 
-/* =========================
-   CONTENTS Common Info
-========================== */
+/* ==================================================
+   8. LOCATION / TIME
+================================================== */
+
+/* ---------- 8-1. Information Layout ---------- */
 
 .contents-info {
   display: grid;
   grid-template-columns: 2fr 1fr;
 
-  gap: 14px;
+  gap: 24px;
 
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
+
+
+/* ---------- 8-2. White Information Panels ---------- */
 
 .contents-info div {
-  display: block;
+  position: relative;
 
-  padding: 16px 20px;
+  padding: 18px 22px;
 
-  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-text);
 
-  border: 1px solid var(--color-cyan);
-}
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(247, 247, 255, 0.96)
+    );
 
-.contents-info div:last-child {
-  border-color: var(--color-magenta);
-  text-align: center;
-  padding: 14px 20px;
-}
+  clip-path: polygon(
+    16px 0,
+    100% 0,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0 100%,
+    0 16px
+  );
 
-.contents-info div:last-child dd {
-  font-size: 1.6rem;
-  font-weight: 700;
+  filter:
+    drop-shadow(0 9px 18px rgba(0, 0, 0, 0.28));
 }
 
 .contents-info dt {
   margin-bottom: 2px;
 
-  color: var(--color-cyan);
-
   font-family: var(--font-en-after);
-
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-
   letter-spacing: 0.1em;
 }
 
-.contents-info div:last-child dt {
-  color: var(--color-magenta);
+.contents-info-location dt {
+  color: #008b9d;
+}
+
+.contents-info-time {
+  text-align: center;
+}
+
+.contents-info-time dt {
+  color: #c3199f;
 }
 
 .contents-info dd {
   margin: 0;
 
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
+.contents-info-time dd {
+  font-size: 1.55rem;
+}
 
-/* =========================
-   SCHOOL
-========================== */
+
+/* ==================================================
+   9. ACADEMY SECTIONS
+================================================== */
+
+/* ---------- 9-1. Section Layout ---------- */
 
 .school {
-  padding-block: 52px;
+  position: relative;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  --academy-rgb: 55, 231, 255;
+
+  padding-block: 62px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.school-game {
+  --academy-rgb: 55, 231, 255;
+}
+
+.school-it {
+  --academy-rgb: 167, 121, 255;
+}
+
+.school-beauty {
+  --academy-rgb: 255, 79, 216;
 }
 
 
-/*
-PCでは番号を左、
-学校情報を右へ配置
-*/
+/* ---------- 9-2. Academy Heading ---------- */
+
 .school-heading {
   display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
 
-  grid-template-columns: 150px minmax(0, 1fr);
-
-  gap: 28px;
-
+  gap: 26px;
   align-items: start;
 
-  margin-bottom: 32px;
+  margin-bottom: 34px;
 }
 
-
-/*
-以前より番号を小さくする
-*/
 .school-number {
   margin: 0;
 
+  color: var(--color-white);
+
   font-family: var(--font-en-after);
-
-  font-size: clamp(5.5rem, 8vw, 8rem);
+  font-size: clamp(5rem, 7.5vw, 7.3rem);
   font-weight: 700;
-
-  line-height: 0.75;
+  line-height: 0.76;
 
   text-shadow:
-    -3px 0 var(--color-cyan),
-    3px 0 var(--color-magenta);
+    -2px 0 rgba(var(--academy-rgb), 0.80),
+    2px 0 rgba(255, 79, 216, 0.30);
 }
 
-
 .school-heading-text h3 {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .school-intro {
-  max-width: 45em;
-
+  max-width: 46em;
   margin-bottom: 0;
 
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(255, 255, 255, 0.80);
 }
 
 
-/* =========================
-   CONTENT CARDS
-========================== */
+/* ==================================================
+   10. HOLOGRAM CONTENT CARDS
+================================================== */
+
+/* ---------- 10-1. Card Layout ---------- */
 
 .content-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
-  gap: 16px;
+  gap: 28px;
+
+  padding-bottom: 20px;
 }
 
 .content-list-two {
   grid-template-columns: repeat(2, 1fr);
 }
 
+
+/* ---------- 10-2. Hologram Base ---------- */
+
 .content-card {
-  min-height: 190px;
+  position: relative;
+  isolation: isolate;
 
-  padding: 22px;
+  min-height: 138px;
 
-  background-color: rgba(255, 255, 255, 0.035);
+  padding: 22px 24px;
 
-  border: 1px solid var(--color-cyan);
-}
-
-.content-card:nth-child(even) {
-  border-color: var(--color-magenta);
-}
-
-.content-number {
-  margin-bottom: 14px;
-
-  color: var(--color-magenta);
-
-  font-family: var(--font-en-after);
-  font-weight: 700;
-
-  letter-spacing: 0.12em;
-}
-
-.content-card h4 {
-  margin-bottom: 10px;
-}
-
-.content-card p:last-child {
-  margin-bottom: 0;
-
-  color: rgba(255, 255, 255, 0.78);
-}
-
-
-/* =========================
-   CTA
-========================== */
-
-.cta {
-  padding-block: 68px;
+  overflow: hidden;
 
   color: var(--color-white);
 
-  background-color: var(--color-deep-violet);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--academy-rgb), 0.13),
+      rgba(255, 255, 255, 0.024) 43%,
+      rgba(var(--academy-rgb), 0.07) 100%
+    );
+
+  border: 1px solid rgba(var(--academy-rgb), 0.74);
+
+  clip-path: polygon(
+    18px 0,
+    100% 0,
+    100% calc(100% - 18px),
+    calc(100% - 18px) 100%,
+    0 100%,
+    0 18px
+  );
+
+  box-shadow:
+    inset 0 0 28px rgba(var(--academy-rgb), 0.12),
+    inset 0 0 6px rgba(var(--academy-rgb), 0.28);
+
+  filter:
+    drop-shadow(0 0 7px rgba(var(--academy-rgb), 0.34))
+    drop-shadow(0 10px 18px rgba(0, 0, 0, 0.30));
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* ---------- 10-3. Scanlines ---------- */
+
+.content-card::before {
+  content: "";
+
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 6px,
+      rgba(var(--academy-rgb), 0.035) 7px
+    );
+
+  pointer-events: none;
+}
+
+
+/* ---------- 10-4. Particles ---------- */
+
+.content-card::after {
+  content: "";
+
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(var(--academy-rgb), 0.30) 0 0.65px,
+      transparent 0.9px
+    );
+
+  background-size: 7px 7px;
+
+  -webkit-mask-image:
+    linear-gradient(
+      115deg,
+      rgba(0, 0, 0, 0.38),
+      rgba(0, 0, 0, 0.12) 52%,
+      transparent 84%
+    );
+
+  mask-image:
+    linear-gradient(
+      115deg,
+      rgba(0, 0, 0, 0.38),
+      rgba(0, 0, 0, 0.12) 52%,
+      transparent 84%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ---------- 10-5. Academy Background Word ---------- */
+
+.content-background-text {
+  position: absolute;
+  z-index: 0;
+
+  top: 50%;
+  right: 5%;
+
+  transform: translateY(-50%);
+
+  color: rgba(var(--academy-rgb), 0.12);
+
+  font-family: var(--font-en-after);
+  font-size: clamp(3rem, 5vw, 5.4rem);
+  font-weight: 700;
+  line-height: 1;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* ---------- 10-6. Card Text ---------- */
+
+.content-card h4,
+.content-card > p {
+  position: relative;
+  z-index: 1;
+}
+
+.content-card h4 {
+  max-width: 90%;
+
+  margin-bottom: 7px;
+
+  color: var(--color-white);
+
+  font-size: clamp(1.2rem, 2vw, 1.48rem);
+}
+
+.content-card > p {
+  max-width: 88%;
+
+  margin-bottom: 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+
+/* ==================================================
+   11. CTA
+================================================== */
+
+/* ---------- 11-1. CTA Background ---------- */
+
+.cta {
+  position: relative;
+
+  padding-block: 86px;
+
+  overflow: hidden;
+
+  color: var(--color-white);
+
+  background:
+    radial-gradient(
+      circle at 18% 44%,
+      rgba(55, 231, 255, 0.08),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 82% 36%,
+      rgba(255, 79, 216, 0.09),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #0d0819,
+      var(--color-cta)
+    );
 
   font-family: var(--font-ja-after);
 }
+
+
+/* ---------- 11-2. Heading ---------- */
 
 .cta .section-label {
   color: var(--color-cyan);
@@ -831,54 +1634,96 @@ PCでは番号を左、
 .cta h2 {
   max-width: 700px;
 
-  margin-bottom: 28px;
+  margin-bottom: 38px;
+
+  color: var(--color-white);
+
+  text-shadow:
+    -1px 0 rgba(55, 231, 255, 0.46),
+    1px 0 rgba(255, 79, 216, 0.40);
 }
+
+
+/* ---------- 11-3. Buttons Layout ---------- */
 
 .cta-links {
   display: flex;
 
-  gap: 18px;
+  gap: 28px;
 }
+
+
+/* ---------- 11-4. Hologram Button Base ---------- */
 
 .cta-button {
-  min-width: 220px;
+  --button-rgb: 55, 231, 255;
 
-  padding: 16px 28px;
+  min-width: 240px;
 
-  text-align: center;
-
-  border: 2px solid var(--color-cyan);
-
-  font-weight: 700;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.cta-button:nth-child(2) {
-  border-color: var(--color-magenta);
-}
-
-.cta-button:hover {
-  color: var(--color-deep-violet);
-
-  background-color: var(--color-white);
-}
-
-
-/* =========================
-   FOOTER
-========================== */
-
-.site-footer {
-  padding-block: 42px;
+  padding: 18px 32px;
 
   color: var(--color-white);
 
-  background-color: var(--color-deep-violet);
+  text-align: center;
+  font-weight: 700;
 
-  border-top: 1px solid var(--color-magenta);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(var(--button-rgb), 0.38),
+      rgba(var(--button-rgb), 0.16)
+    );
+
+  border: 1px solid rgba(var(--button-rgb), 0.84);
+
+  box-shadow:
+    inset 0 0 20px rgba(var(--button-rgb), 0.18),
+    0 0 13px rgba(var(--button-rgb), 0.32);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    inset 0 0 28px rgba(var(--button-rgb), 0.24),
+    0 0 20px rgba(var(--button-rgb), 0.46);
+}
+
+.cta-button-cyan {
+  --button-rgb: 55, 231, 255;
+}
+
+.cta-button-magenta {
+  --button-rgb: 255, 79, 216;
+}
+
+
+/* ==================================================
+   12. FOOTER
+================================================== */
+
+/* ---------- 12-1. Footer Base ---------- */
+
+.site-footer {
+  padding-block: 46px;
+
+  color: var(--color-white);
+
+  background:
+    linear-gradient(
+      180deg,
+      #06030c,
+      var(--color-footer)
+    );
+
+  border-top: 1px solid rgba(167, 121, 255, 0.18);
 
   font-family: var(--font-ja-after);
 }
@@ -892,24 +1737,22 @@ PCでは番号を左、
 }
 
 
-/*
-ロゴ部分だけ背景を明るくする
-*/
+/* ---------- 12-2. Footer Logo ---------- */
+
 .footer-logo {
-  width: 230px;
+  width: 220px;
 
-  padding: 14px 18px;
+  padding: 12px 16px;
 
-  background-color: var(--color-white);
-
-  border-left: 3px solid var(--color-cyan);
-  border-bottom: 3px solid var(--color-magenta);
+  background-color: rgba(255, 255, 255, 0.96);
 }
 
 .footer-logo img {
   width: 100%;
 }
 
+
+/* ---------- 12-3. Footer Navigation ---------- */
 
 .footer-nav {
   display: flex;
@@ -919,47 +1762,69 @@ PCでは番号を左、
   font-family: var(--font-en-after);
 }
 
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.footer-nav a:hover {
+  color: var(--color-white);
+
+  text-shadow:
+    -1px 0 rgba(55, 231, 255, 0.48),
+    1px 0 rgba(255, 79, 216, 0.42);
+}
+
+
+/* ---------- 12-4. Copyright ---------- */
+
 .copyright {
   margin-bottom: 0;
 
-  font-family: var(--font-en-after);
+  color: rgba(255, 255, 255, 0.62);
 
-  font-size: 0.875rem;
+  font-family: var(--font-en-after);
+  font-size: 0.82rem;
 }
 
 
 /* ==================================================
-   SMARTPHONE
+   13. RESPONSIVE
 ================================================== */
 
 @media (max-width: 768px) {
 
   :root {
-    --header-height: 72px;
+    --header-height: 70px;
   }
 
 
-  /* =========================
-     Common
-  ========================== */
+  /* ---------- 13-1. Common ---------- */
 
   .container {
     width: min(100% - 32px, var(--content-width));
   }
 
 
-  /* =========================
-     Header
-  ========================== */
+  /* ---------- 13-2. Header ---------- */
+
+  .site-header {
+    padding-top: 7px;
+  }
+
+  .header-inner {
+    min-height: calc(var(--header-height) - 12px);
+
+    padding: 8px 12px;
+  }
 
   .header-logo {
-    width: 175px;
+    width: 165px;
   }
 
   .header-date {
     margin-top: 0;
 
-    font-size: 0.62rem;
+    font-size: 0.58rem;
   }
 
   .header-nav {
@@ -971,8 +1836,8 @@ PCでは番号を左、
   }
 
   .sp-menu summary {
-    width: 32px;
-    height: 24px;
+    width: 30px;
+    height: 22px;
 
     display: flex;
     flex-direction: column;
@@ -1000,35 +1865,37 @@ PCでは番号を左、
     position: absolute;
 
     top: var(--header-height);
-    left: 0;
-
-    width: 100%;
+    left: 16px;
+    right: 16px;
 
     display: flex;
     flex-direction: column;
 
-    padding: 24px;
+    padding: 18px;
 
-    background-color: var(--color-white);
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.95),
+        rgba(240, 247, 255, 0.92)
+      );
 
-    border-bottom: 2px solid var(--color-magenta);
+    border: 1px solid rgba(169, 239, 247, 0.42);
 
-    font-family: var(--font-en-after);
-    font-weight: 600;
+    box-shadow:
+      0 12px 30px rgba(41, 32, 76, 0.14);
   }
 
   .sp-menu nav a {
-    padding-block: 12px;
+    padding-block: 10px;
   }
 
 
-  /* =========================
-     HERO
-  ========================== */
+  /* ---------- 13-3. Hero ---------- */
 
   .hero {
-    padding-top: calc(var(--header-height) + 20px);
-    padding-bottom: 56px;
+    padding-top: calc(var(--header-height) + 18px);
+    padding-bottom: 52px;
   }
 
   .hero-inner {
@@ -1061,24 +1928,21 @@ PCでは番号を左、
     left: auto;
     bottom: auto;
 
-    width: calc(100% - 24px);
+    width: calc(100% - 20px);
 
-    margin-top: -80px;
-    margin-left: 12px;
+    margin-top: -76px;
+    margin-left: 10px;
 
-    padding: 22px;
+    padding: 20px;
 
-    background-color: rgba(255, 255, 255, 0.84);
+    background-color: rgba(255, 255, 255, 0.86);
 
-    backdrop-filter: blur(5px);
-  }
-
-  .event-info {
-    grid-template-columns: repeat(2, 1fr);
+    box-shadow:
+      6px 8px 0 rgba(63, 54, 94, 0.11);
   }
 
   .event-info-main dd {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
   }
 
   .event-info-place dd {
@@ -1086,107 +1950,144 @@ PCでは番号を左、
   }
 
 
-  /* =========================
-     ABOUT
-  ========================== */
+  /* ---------- 13-4. About ---------- */
 
   .about {
-    padding-block: 64px;
+    padding-block: 66px 78px;
   }
 
   .about-background-text {
-    top: 80px;
-    right: -20px;
+    top: 78px;
+    right: -24px;
 
     font-size: 9rem;
   }
 
-  .about .section-heading {
-    margin-bottom: 40px;
+  .about-heading {
+    margin-bottom: 42px;
   }
 
   .about-list {
     display: flex;
     flex-direction: column;
 
-    gap: 56px;
+    gap: 52px;
   }
 
   .about-item {
     max-width: none;
   }
 
-  .about-item-01,
   .about-item-02 {
     margin-top: 0;
+  }
 
-    justify-self: auto;
+  .about-arrow {
+    width: 210px;
+    height: 28px;
+
+    margin-bottom: 15px;
+  }
+
+  .about-card {
+    padding: 21px 20px;
+
+    clip-path: polygon(
+      14px 0,
+      100% 0,
+      100% calc(100% - 14px),
+      calc(100% - 14px) 100%,
+      0 100%,
+      0 14px
+    );
+
+    filter:
+      drop-shadow(-3px 3px 0 rgba(169, 239, 247, 0.62))
+      drop-shadow(4px 4px 0 rgba(244, 184, 220, 0.46))
+      drop-shadow(0 10px 16px rgba(87, 75, 123, 0.10));
+  }
+
+  .about-card h3 {
+    font-size: 1.55rem;
+  }
+
+  .about-ui-window {
+    opacity: 0.62;
+    transform: scale(0.78);
+  }
+
+  .about-triangle-01 {
+    right: -1%;
+  }
+
+  .about-triangle-02 {
+    left: -3%;
   }
 
 
-  /* =========================
-     CONTENTS
-  ========================== */
+  /* ---------- 13-5. Transition ---------- */
+
+  .glitch-transition {
+    height: 74px;
+  }
+
+  .pixel-large {
+    width: 42px;
+    height: 22px;
+  }
+
+
+  /* ---------- 13-6. Contents ---------- */
 
   .contents {
-    padding-block: 64px;
+    padding-block: 68px;
   }
 
-  .contents-heading {
-    margin-bottom: 24px;
+  .contents-heading h2 {
+    text-shadow:
+      -3px 0 var(--color-cyan),
+      3px 0 var(--color-magenta);
   }
 
 
-  /* -------------------------
-     Contents Navigation
-  -------------------------- */
-
-  .contents-nav {
-    margin-bottom: 20px;
-  }
+  /* ---------- 13-7. Contents Navigation ---------- */
 
   .contents-nav-list {
     grid-template-columns: 1fr;
 
-    gap: 8px;
+    gap: 18px;
   }
 
   .contents-nav-item {
-    padding: 12px 14px;
-  }
+    min-height: 94px;
 
-  .contents-nav-number {
-    font-size: 1.55rem;
-  }
-
-  .contents-nav-name {
-    font-size: 0.78rem;
+    padding: 14px 16px;
   }
 
 
-  /* -------------------------
-     Contents Information
-  -------------------------- */
+  /* ---------- 13-8. Location / Time ---------- */
 
   .contents-info {
     grid-template-columns: 1fr;
 
-    gap: 10px;
+    gap: 16px;
 
-    margin-bottom: 48px;
+    margin-bottom: 54px;
   }
 
-  .contents-info dd {
-    font-size: 1.1rem;
+  .contents-info div {
+    padding: 16px 18px;
+  }
+
+  .contents-info-time {
+    text-align: left;
   }
 
 
-  /* =========================
-     SCHOOL
-  ========================== */
+  /* ---------- 13-9. Academy ---------- */
 
   .school {
-    padding-block: 52px;
+    padding-block: 54px;
   }
 
   .school-heading {
@@ -1195,45 +2096,45 @@ PCでは番号を左、
     margin-bottom: 28px;
   }
 
-
-  /*
-  スマホでは番号をさらに小さく
-  */
   .school-number {
-    margin-bottom: 22px;
+    margin-bottom: 18px;
 
-    font-size: clamp(4rem, 18vw, 5.5rem);
-
-    text-shadow:
-      -2px 0 var(--color-cyan),
-      2px 0 var(--color-magenta);
+    font-size: clamp(4rem, 18vw, 5.4rem);
   }
 
 
-  /* =========================
-     Cards
-  ========================== */
+  /* ---------- 13-10. Hologram Cards ---------- */
 
   .content-list,
   .content-list-two {
     grid-template-columns: 1fr;
+
+    gap: 20px;
   }
 
   .content-card {
-    min-height: auto;
+    min-height: 122px;
+
+    padding: 19px 20px;
+  }
+
+  .content-background-text {
+    right: 4%;
+
+    font-size: clamp(3rem, 17vw, 4.8rem);
   }
 
 
-  /* =========================
-     CTA
-  ========================== */
+  /* ---------- 13-11. CTA ---------- */
 
   .cta {
-    padding-block: 64px;
+    padding-block: 68px;
   }
 
   .cta-links {
     flex-direction: column;
+
+    gap: 18px;
   }
 
   .cta-button {
@@ -1242,9 +2143,7 @@ PCでは番号を左、
   }
 
 
-  /* =========================
-     Footer
-  ========================== */
+  /* ---------- 13-12. Footer ---------- */
 
   .site-footer {
     padding-block: 42px;
@@ -1256,13 +2155,13 @@ PCでは番号を左、
   }
 
   .footer-logo {
-    width: 210px;
+    width: 200px;
   }
 
   .footer-nav {
     flex-direction: column;
 
-    gap: 8px;
+    gap: 7px;
   }
 
 }
