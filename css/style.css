@@ -1121,7 +1121,7 @@ section {
   color: rgba(255, 255, 255, 0.74);
 
   font-family: var(--font-en-after);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.14em;
 }
@@ -1237,7 +1237,7 @@ section {
   align-self: center;
 
   font-family: var(--font-en-after);
-  font-size: 1.65rem;
+  font-size: 2.3rem;
   font-weight: 700;
   line-height: 1;
 
@@ -1246,7 +1246,7 @@ section {
 
 .contents-nav-category {
   font-family: var(--font-en-after);
-  font-size: 0.82rem;
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: 0.12em;
 }
@@ -1256,7 +1256,7 @@ section {
 
   color: rgba(255, 255, 255, 0.74);
 
-  font-size: 0.8rem;
+  font-size: 1.05rem;
   line-height: 1.45;
 }
 
