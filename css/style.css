@@ -1704,10 +1704,10 @@ section {
   --button-rgb: 255, 79, 216;
 }
 
-
 /* ==================================================
    12. FOOTER
 ================================================== */
+
 
 /* ---------- 12-1. Footer Base ---------- */
 
@@ -1728,6 +1728,7 @@ section {
   font-family: var(--font-ja-after);
 }
 
+
 .footer-inner {
   display: flex;
   align-items: center;
@@ -1740,15 +1741,279 @@ section {
 /* ---------- 12-2. Footer Logo ---------- */
 
 .footer-logo {
+  position: relative;
+
   width: 220px;
+  min-height: 132px;
 
-  padding: 12px 16px;
+  display: block;
 
-  background-color: rgba(255, 255, 255, 0.96);
+  overflow: hidden;
+
+  text-decoration: none;
+
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  );
 }
 
-.footer-logo img {
+
+/* normal state */
+
+.footer-logo-front {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 18px;
+
+  background:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(169, 239, 247, 0.34),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 84% 76%,
+      rgba(201, 185, 255, 0.32),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.94) 0%,
+      rgba(232, 250, 255, 0.88) 50%,
+      rgba(239, 233, 255, 0.84) 100%
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    0 10px 26px rgba(15, 10, 28, 0.24),
+    inset 0 -1px 0 rgba(55, 231, 255, 0.20),
+    inset 1px 0 0 rgba(167, 121, 255, 0.14);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    opacity 0.22s ease,
+    transform 0.48s ease,
+    filter 0.22s ease;
+}
+
+
+.footer-logo-front::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.58) 0%,
+      rgba(255, 255, 255, 0.20) 24%,
+      rgba(255, 255, 255, 0.06) 42%,
+      transparent 58%
+    );
+
+  pointer-events: none;
+}
+
+
+.footer-logo-front img {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
+
+  display: block;
+}
+
+
+/* cyber state */
+
+.footer-logo-back {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 16px 18px;
+
+  color: var(--color-white);
+
+  background:
+    radial-gradient(
+      circle at 14% 20%,
+      rgba(55, 231, 255, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 86% 76%,
+      rgba(255, 79, 216, 0.16),
+      transparent 30%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 6px,
+      rgba(255, 255, 255, 0.025) 7px
+    ),
+    linear-gradient(
+      150deg,
+      var(--color-contents-top) 0%,
+      var(--color-contents-mid) 46%,
+      var(--color-contents-bottom) 100%
+    );
+
+  border: 1px solid rgba(55, 231, 255, 0.40);
+
+  box-shadow:
+    inset 0 0 18px rgba(55, 231, 255, 0.08),
+    inset 0 0 28px rgba(255, 79, 216, 0.05);
+
+  opacity: 0;
+
+  clip-path: polygon(
+    100% 100%,
+    100% 100%,
+    100% 100%
+  );
+
+  transition:
+    clip-path 0.52s cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 0.08s linear;
+}
+
+
+.footer-logo-back::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0 42%,
+      rgba(55, 231, 255, 0.08) 43% 44%,
+      transparent 45% 56%,
+      rgba(255, 79, 216, 0.07) 57% 58%,
+      transparent 59%
+    );
+
+  pointer-events: none;
+}
+
+
+.footer-logo-back::after {
+  content: "";
+
+  position: absolute;
+
+  right: 14px;
+  bottom: 13px;
+
+  width: 44%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-cyan),
+      var(--color-magenta)
+    );
+
+  box-shadow:
+    0 0 9px rgba(55, 231, 255, 0.34),
+    0 0 11px rgba(255, 79, 216, 0.28);
+}
+
+
+.footer-logo-back-label {
+  position: relative;
+  z-index: 1;
+
+  margin-bottom: 7px;
+
+  color: rgba(255, 255, 255, 0.60);
+
+  font-family: var(--font-en-after);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+
+.footer-logo-back-title {
+  position: relative;
+  z-index: 1;
+
+  color: var(--color-white);
+
+  font-family: var(--font-ja-after);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+
+  text-shadow:
+    -2px 0 rgba(55, 231, 255, 0.78),
+    2px 0 rgba(255, 79, 216, 0.66);
+}
+
+
+.footer-logo-back-sub {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 10px;
+
+  color: rgba(255, 255, 255, 0.74);
+
+  font-family: var(--font-en-after);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+
+/* hover */
+
+.footer-logo:hover .footer-logo-front,
+.footer-logo:focus-visible .footer-logo-front {
+  opacity: 0;
+
+  transform:
+    translate(-8px, -8px)
+    scale(0.97);
+
+  filter: blur(2px);
+}
+
+
+.footer-logo:hover .footer-logo-back,
+.footer-logo:focus-visible .footer-logo-back {
+  opacity: 1;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
 }
 
 
@@ -1762,9 +2027,11 @@ section {
   font-family: var(--font-en-after);
 }
 
+
 .footer-nav a {
   color: rgba(255, 255, 255, 0.78);
 }
+
 
 .footer-nav a:hover {
   color: var(--color-white);
@@ -1785,7 +2052,6 @@ section {
   font-family: var(--font-en-after);
   font-size: 0.82rem;
 }
-
 
 /* ==================================================
    13. RESPONSIVE
@@ -2156,6 +2422,30 @@ section {
 
   .footer-logo {
     width: 200px;
+    min-height: 120px;
+  }
+
+  .footer-logo-front {
+    padding: 14px 14px;
+  }
+
+  .footer-logo-back {
+    padding: 12px 14px 14px;
+  }
+
+  .footer-logo-back-title {
+    font-size: 1.18rem;
+  }
+
+  .footer-logo-back-sub {
+    font-size: 0.68rem;
+  }
+
+  .footer-logo-text {
+    margin-top: 10px;
+    padding-top: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
   }
 
   .footer-nav {
